@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Miscellaneous on Yuan-Ru Lin</title>
+    <link>https://yuan-ru-lin.github.io/categories/miscellaneous/</link>
+    <description>Recent content in Miscellaneous on Yuan-Ru Lin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 24 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://yuan-ru-lin.github.io/categories/miscellaneous/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python 教學隨筆</title>
+      <link>https://yuan-ru-lin.github.io/blog/python-tutor/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-ru-lin.github.io/blog/python-tutor/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;「嗯⋯⋯可是我是物理系的欸？」&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;這是我聽到有人請我教 Python 時的第一個想法。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

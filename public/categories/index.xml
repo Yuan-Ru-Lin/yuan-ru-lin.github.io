@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Yuan-Ru Lin</title>
+    <link>https://yuan-ru-lin.github.io/categories/</link>
+    <description>Recent content in Categories on Yuan-Ru Lin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 26 Apr 2020 12:41:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yuan-ru-lin.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Naval</title>
+      <link>https://yuan-ru-lin.github.io/categories/naval/</link>
+      <pubDate>Sun, 26 Apr 2020 12:41:00 +0800</pubDate>
+      
+      <guid>https://yuan-ru-lin.github.io/categories/naval/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://yuan-ru-lin.github.io/categories/python/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-ru-lin.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutor</title>
+      <link>https://yuan-ru-lin.github.io/categories/tutor/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-ru-lin.github.io/categories/tutor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Miscellaneous</title>
+      <link>https://yuan-ru-lin.github.io/categories/miscellaneous/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-ru-lin.github.io/categories/miscellaneous/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Naval on Yuan-Ru Lin</title>
+    <link>https://yuan-ru-lin.github.io/categories/naval/</link>
+    <description>Recent content in Naval on Yuan-Ru Lin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 26 Apr 2020 12:41:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://yuan-ru-lin.github.io/categories/naval/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>你會成功的，翻譯自 Naval</title>
+      <link>https://yuan-ru-lin.github.io/blog/naval/</link>
+      <pubDate>Sun, 26 Apr 2020 12:41:00 +0800</pubDate>
+      
+      <guid>https://yuan-ru-lin.github.io/blog/naval/</guid>
+      <description>放輕鬆點，你會成功的。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,48 @@
+baseURL = "https://yuan-ru-lin.github.io/"
+copyright = "© {year}"
+languageCode = "zh-tw"
+title = "Yuan-Ru Lin"
+theme = "hugo-theme-codex"
+
+#footnoteReturnLinkContents = "↩︎"
+#hasCJKLanguage = true
+#DefaultContentLanguage = "zh-tw"
+
+disqusShortname = "perfectly-coherent"
+googleAnalytics = "UA-146395889-1"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    title = "About"
+    url = "/"
+  [[menu.main]]
+    identifier = "blog"
+    name = "blog"
+    title = "Blog"
+    url = "/blog"
+  [[menu.main]]
+    identifier = "energy"
+    name = "energy"
+    url = "https://www.youtube.com/watch?v=NEO7emQTRT8"
+  [[menu.main]]
+    identifier = "curation"
+    name = "curation"
+    url = "/blog/why-rss/#my-curation"
+
+[params]
+    dateFormat = "Jan 2 2006"
+    email = "leonlin1997@gmail.com"
+    facebook = "https://www.facebook.com/profile.php?id=100002662590129"
+    twitter = "https://twitter.com/leonlin1997"
+    github = "https://github.com/Yuan-Ru-Lin"
+    rss = "/index.xml"
+    iconOrder = ["Twitter", "RSS", "GitHub", "email", "facebook"]
+    showPageTitleInTOC = true
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+  [markup.goldmark.renderer]
+      unsafe = true

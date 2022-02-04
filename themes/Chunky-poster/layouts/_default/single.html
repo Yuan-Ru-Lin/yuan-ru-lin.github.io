@@ -1,0 +1,41 @@
+{{ define "main" }}
+<main class="content-page container pt-7 pb-5">
+    {{ $page := . }}
+    <div class="row">
+        <div class="col">
+            <article>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="mb-3">{{ .Title }}</h2>
+
+                        <div class="content">
+                            {{ .Content }}
+                        </div>
+
+                        {{- with $page.Params.tags -}}
+                            <div class="tags my-3">
+                            {{- range . -}}
+                                <a class="badge badge-pill badge-light border mr-2" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">
+                                    <i class="fas fa-tag mr-2"></i>{{ . }}
+                                </a>
+                            {{- end -}}
+                            </div>
+                        {{- end -}}
+
+                        {{ partial "sharer.html" . }}
+                    </div>
+                    <script data-isso="https://isso-leon.hare1039.nctu.me/"
+                        data-isso-lang="en"
+                        data-isso-reply-notifications="true"
+                        data-isso-reply-to-self="true"
+                        data-isso-require-author="true"
+                        data-isso-avatar="false"
+                        data-isso-gravatar="true"
+                        src="https://isso-leon.hare1039.nctu.me/js/embed.min.js"></script>
+                    <section id="isso-thread"></section>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+{{ end }}

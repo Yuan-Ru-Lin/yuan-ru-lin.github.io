@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Essay on Yuan-Ru Lin</title>
+    <link>https://yuan-ru-lin.github.io/categories/essay/</link>
+    <description>Recent content in Essay on Yuan-Ru Lin</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://yuan-ru-lin.github.io/categories/essay/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>When to Publish</title>
+      <link>https://yuan-ru-lin.github.io/blog/when-to-publish/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://yuan-ru-lin.github.io/blog/when-to-publish/</guid>
+      <description>Publish when you can&amp;rsquo;t see a better version of your piece.</description>
+    </item>
+    
+  </channel>
+</rss>
