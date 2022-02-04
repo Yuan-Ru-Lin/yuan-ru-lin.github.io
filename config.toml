@@ -2,7 +2,7 @@ baseURL = "https://yuan-ru-lin.github.io/"
 copyright = "© {year}"
 languageCode = "zh-tw"
 title = "Yuan-Ru Lin"
-theme = "hugo-theme-codex"
+theme = "ananke"
 
 #footnoteReturnLinkContents = "↩︎"
 #hasCJKLanguage = true
@@ -33,9 +33,9 @@ googleAnalytics = "UA-146395889-1"
 
 [params]
     dateFormat = "Jan 2 2006"
-    email = "leonlin1997@gmail.com"
+    email = "YuanRuLeonLin@gmail.com"
     facebook = "https://www.facebook.com/profile.php?id=100002662590129"
-    twitter = "https://twitter.com/leonlin1997"
+    twitter = "https://twitter.com/YuanRuLeonLin"
     github = "https://github.com/Yuan-Ru-Lin"
     rss = "/index.xml"
     iconOrder = ["Twitter", "RSS", "GitHub", "email", "facebook"]
