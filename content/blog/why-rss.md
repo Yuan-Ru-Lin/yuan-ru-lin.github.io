@@ -41,10 +41,6 @@ You can learn how to pipeline posts on Medium from [this article](https://help.m
 
 ### Blogs built with WordPress
 
-While there are blogs that don't offer the forementioned button, some of them actually generate RSS feed automatically. The feed can be access by appending `/rss` (or `/feed`) to the url of the website. For example, *Humanity Island* (`https://humanityisland.nccu.edu.tw`) doesn't have the button in the page, but you still can access the feed from  `https://humanityisland.nccu.edu.tw/feed`. [2]
+While there are blogs that don't offer the forementioned button, some of them actually generate RSS feed automatically. The feed can be access by appending `/rss` (or `/feed`) to the url of the website. For example, *Humanity Island* (`https://humanityisland.nccu.edu.tw`) doesn't have the button in the page, but you still can access the feed from  `https://humanityisland.nccu.edu.tw/feed`. [^trick]
 
----
-
-[1]: For those who would like to know which RSS service to use, I would say Reeder for macOS and Feedly otherwise.
-
-[2]: The trick was mentioned by Ying-Hua, Pinkie, Wen.
+[^trick]: The trick was mentioned by Ying-Hua, Pinkie, Wen.
