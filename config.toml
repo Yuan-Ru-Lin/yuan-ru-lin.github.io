@@ -1,14 +1,11 @@
 baseURL = "https://yuan-ru-lin.github.io/"
-copyright = "© {year}"
 languageCode = "zh-tw"
 title = "Yuan-Ru Lin"
 theme = "ananke"
 
-#footnoteReturnLinkContents = "↩︎"
-#hasCJKLanguage = true
-#DefaultContentLanguage = "zh-tw"
+hasCJKLanguage = true
+DefaultContentLanguage = "zh-tw"
 
-disqusShortname = "perfectly-coherent"
 googleAnalytics = "UA-146395889-1"
 
 [menu]
@@ -38,11 +35,4 @@ googleAnalytics = "UA-146395889-1"
     twitter = "https://twitter.com/YuanRuLeonLin"
     github = "https://github.com/Yuan-Ru-Lin"
     rss = "/index.xml"
-    iconOrder = ["Twitter", "RSS", "GitHub", "email", "facebook"]
     showPageTitleInTOC = true
-
-[markup]
-  [markup.highlight]
-    codeFences = false
-  [markup.goldmark.renderer]
-      unsafe = true
