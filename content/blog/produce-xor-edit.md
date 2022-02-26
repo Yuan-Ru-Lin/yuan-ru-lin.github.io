@@ -2,6 +2,7 @@
 title: Produce xor Edit
 date: 2020-10-18
 tags: [Writing]
+summary: When you write, either produce content or modify what's been written.
 ---
 When you write, either produce content or modify what's been written.
 

@@ -2,12 +2,9 @@
 title: Why RSS
 date: 2021-02-12T15:00:00+08:00
 tags: [Reading]
+summary: RSS is an old-fashioned way to receive feeds from creators directly. It allows you to access information in a way that is stable, free of distraction and untouched by algorithms.
 ---
-RSS is an old-fashioned way to receive feeds from creators directly. It allows you to access information in a way that is
-
-1. stable,
-2. free of distraction and
-3. untouched by algorithms.
+RSS is an old-fashioned way to receive feeds from creators directly. It allows you to access information in a way that is stable, free of distraction and untouched by algorithms.
 
 Below are my feeds.
 
