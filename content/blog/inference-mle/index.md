@@ -1,6 +1,7 @@
 ---
-title: Inference — Maximum Likelihood Estimation
+title: Inference — Maximum-Likelihood Estimation
 date: 2022-03-02
+summary: Hands-on for Maximum-Likelihood Estimation, with demonstration for confidence intervals.
 ---
 
 Below is the content demonstrated in the workshop held on February 25, 2022. It illustrates how one proceeds Maximum-Likelihood Estimation in Python and also helps you understand the concept of confidence intervals.
