@@ -18,3 +18,5 @@ params:
   showToc: true
   enableComments: true
   enableRSS: true
+  enableGoogleAnalytics: true
+
