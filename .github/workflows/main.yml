@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Install pandoc
-        uses: docker://pandoc/core:2.9
+        run: sudo apt-get install pandoc
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
