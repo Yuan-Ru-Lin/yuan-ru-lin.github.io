@@ -2,7 +2,6 @@
 date: 2022-04-01T21:00:00+08:00
 title: Calculation of $P$-value and Significance Level
 summary: Calculation of $P$-value and significance level
-markup: pandoc
 ---
 
 ## Prepare pseudo-data
@@ -128,7 +127,7 @@ In this example, we turn to Wilks' Theorem, which states that the test statistic
 So what is $k$ in our example? Note that our hypotheses are of the forms
 
 $$\begin{aligned}
-L_{\text{null}} &= a,\\
+L_{\text{null}} &= a,\newline
 L_{\text{alter}} &= a + b \cdot G(M, \sigma = 0.05).
 \end{aligned}$$
 
