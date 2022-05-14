@@ -1,6 +1,8 @@
 ---
 title: About
 date: 2022-05-14
+type: page
+layout: section
 ---
 
 ## Academic
