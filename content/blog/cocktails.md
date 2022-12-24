@@ -29,6 +29,7 @@ summary: Get yourself drunk at home, economically
 * Sugar: 2 teaspoons
 * White rum: 60 mL
 * Honey: 2 tablespoons
+* Lemon: 1 slice
 
 Add sugar into the hot water first. That way it dissolves more easily.
 
