@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yuan-Ru Lin</title>
+    <link>https://yuan-ru-lin.github.io/</link>
+    <description>Recent content on Yuan-Ru Lin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 02 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yuan-ru-lin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using PyCall with uv-managed Python Environments</title>
+      <link>https://yuan-ru-lin.github.io/blog/pycall-with-uv/</link>
+      <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/pycall-with-uv/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem &lt;a href=&#34;#the-problem&#34; class=&#34;anchor&#34;&gt;🔗&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;When using PyCall.jl with Python executables and packages managed by &lt;a href=&#34;https://github.com/astral-sh/uv&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;uv&lt;/a&gt;, PyCall can find the Python executable in the virtual environment but doesn&amp;rsquo;t recognize packages installed via &lt;code&gt;uv add&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-solution&#34;&gt;The Solution &lt;a href=&#34;#the-solution&#34; class=&#34;anchor&#34;&gt;🔗&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Add the uv virtual environment&amp;rsquo;s site-packages to Python&amp;rsquo;s path before importing packages:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-julia&#34; data-lang=&#34;julia&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pushfirst!(pyimport(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sys&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;, realpath(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.venv/lib/python3.11/site-packages/&amp;#34;&lt;/span&gt;))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This prepends the uv virtual environment&amp;rsquo;s package directory to Python&amp;rsquo;s module search path, allowing PyCall to find all packages installed via uv.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Adjust the Python version in the path (&lt;code&gt;python3.11&lt;/code&gt;) to match your virtual environment&amp;rsquo;s Python version.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About passwordless ssh</title>
+      <link>https://yuan-ru-lin.github.io/blog/how-to-passwordless-ssh/</link>
+      <pubDate>Mon, 27 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/how-to-passwordless-ssh/</guid>
+      <description>test</description>
+    </item>
+    <item>
+      <title>DIY Cocktails</title>
+      <link>https://yuan-ru-lin.github.io/blog/cocktails/</link>
+      <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/cocktails/</guid>
+      <description>Get yourself drunk at home, economically</description>
+    </item>
+    <item>
+      <title>How Physicists Observe Particles, starting from the Belle Experiment and CP-Violation</title>
+      <link>https://yuan-ru-lin.github.io/blog/belle-population/</link>
+      <pubDate>Mon, 12 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/belle-population/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://yuan-ru-lin.github.io/about/</link>
+      <pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/about/</guid>
+      <description>&lt;h2 id=&#34;academic&#34;&gt;Academic &lt;a href=&#34;#academic&#34; class=&#34;anchor&#34;&gt;🔗&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Organiser of Statistics Seminar and Workshop for NTUHEP, 2022&lt;/li&gt;&#xA;&lt;li&gt;Contributer of &lt;a href=&#34;https://software.belle2.org/sphinx/light-2203-zeus/analysis/doc/index-01-analysis.html?highlight=neutralhadron4momentumcalculator#module-NeutralHadron4MomentumCalculator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;a BASF2 module &lt;code&gt;NeutralHadron4MomentumCalculator&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Contributer of &lt;a href=&#34;http://dx.doi.org/10.6342%2fNTU202103402&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;anti-neutron PID in the Belle experiment&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;personal&#34;&gt;Personal &lt;a href=&#34;#personal&#34; class=&#34;anchor&#34;&gt;🔗&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Coffee addict. My personal café review is under development.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Links</title>
+      <link>https://yuan-ru-lin.github.io/links/</link>
+      <pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/links/</guid>
+      <description>&lt;p&gt;Work in progress&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Browse Remote Files with an HTTP Server</title>
+      <link>https://yuan-ru-lin.github.io/blog/remote-files-with-http-server/</link>
+      <pubDate>Thu, 12 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/remote-files-with-http-server/</guid>
+      <description>No more &lt;code&gt;scp&lt;/code&gt; nor &lt;code&gt;eog&lt;/code&gt;.</description>
+    </item>
+    <item>
+      <title>On Note-Taking Softwares</title>
+      <link>https://yuan-ru-lin.github.io/blog/on-note-taking-softwares/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/on-note-taking-softwares/</guid>
+      <description>Markdown and all that.</description>
+    </item>
+    <item>
+      <title>How to Use Colors in $\LaTeX$</title>
+      <link>https://yuan-ru-lin.github.io/blog/color-latex/</link>
+      <pubDate>Thu, 05 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/color-latex/</guid>
+      <description>So you can write something like $\color{orange} A = \textcolor{blue}{B} \mathbin{\textcolor{red}{-}} \textcolor{green}{C}.$</description>
+    </item>
+    <item>
+      <title>Calculation of $P$-value and Significance Level</title>
+      <link>https://yuan-ru-lin.github.io/blog/p-value-significance-level/</link>
+      <pubDate>Fri, 01 Apr 2022 21:00:00 +0800</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/p-value-significance-level/</guid>
+      <description>Calculation of $P$-value and significance level</description>
+    </item>
+    <item>
+      <title>Binned Fit — Least-Squares Fit and Binned Maximum-Likelihood Fit</title>
+      <link>https://yuan-ru-lin.github.io/blog/inference-binned/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/inference-binned/</guid>
+      <description>How to fit binned data</description>
+    </item>
+    <item>
+      <title>Inference — Maximum-Likelihood Estimation</title>
+      <link>https://yuan-ru-lin.github.io/blog/inference-mle/</link>
+      <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/inference-mle/</guid>
+      <description>Hands-on for Maximum-Likelihood Estimation, with demonstration for confidence intervals.</description>
+    </item>
+    <item>
+      <title>Why RSS</title>
+      <link>https://yuan-ru-lin.github.io/blog/why-rss/</link>
+      <pubDate>Fri, 12 Feb 2021 15:00:00 +0800</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/why-rss/</guid>
+      <description>RSS is an old-fashioned way to receive feeds from creators directly. It allows you to access information in a way that is stable, free of distraction and untouched by algorithms.</description>
+    </item>
+    <item>
+      <title>How to Read a Book</title>
+      <link>https://yuan-ru-lin.github.io/blog/how-to-read-a-book/</link>
+      <pubDate>Sat, 24 Oct 2020 16:37:00 +0800</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/how-to-read-a-book/</guid>
+      <description>The key is to serve your interests, and your interests only.</description>
+    </item>
+    <item>
+      <title>Produce xor Edit</title>
+      <link>https://yuan-ru-lin.github.io/blog/produce-xor-edit/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/produce-xor-edit/</guid>
+      <description>When you write, either produce content or modify what&amp;rsquo;s been written.</description>
+    </item>
+    <item>
+      <title>When to Publish</title>
+      <link>https://yuan-ru-lin.github.io/blog/when-to-publish/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/when-to-publish/</guid>
+      <description>Publish when you can&amp;rsquo;t see a better version of your piece.</description>
+    </item>
+    <item>
+      <title>Zeroth Impression</title>
+      <link>https://yuan-ru-lin.github.io/blog/zeroth-impression/</link>
+      <pubDate>Fri, 08 May 2020 10:39:47 +0800</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/zeroth-impression/</guid>
+      <description>&lt;p&gt;Forget about first impression.&lt;/p&gt;&#xA;&lt;p&gt;Focus on zeroth impression.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>你會成功的，翻譯自 Naval</title>
+      <link>https://yuan-ru-lin.github.io/blog/naval/</link>
+      <pubDate>Sun, 26 Apr 2020 12:41:00 +0800</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/naval/</guid>
+      <description>放輕鬆點，你會成功的。</description>
+    </item>
+    <item>
+      <title>How I Managed to Exercise for (Almost) One Month</title>
+      <link>https://yuan-ru-lin.github.io/blog/how-i-managed-to-exercise-for-almost-one-month/</link>
+      <pubDate>Sat, 18 Apr 2020 11:00:00 +0800</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/how-i-managed-to-exercise-for-almost-one-month/</guid>
+      <description>All you need are two cups and a handful of coins.</description>
+    </item>
+    <item>
+      <title>在 matplotlib 顯示中文</title>
+      <link>https://yuan-ru-lin.github.io/blog/chinese-font/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/chinese-font/</guid>
+      <description>&lt;p&gt;在 &lt;code&gt;matplotlib&lt;/code&gt; 的圖中顯示中文應該是每個使用 Python 做科學繪圖的人滿想輕鬆解決的問題。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>&#34;So you are learning Python&#34;</title>
+      <link>https://yuan-ru-lin.github.io/blog/so-you-are-learning-python/</link>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/so-you-are-learning-python/</guid>
+      <description>Learning programming as a non-CS major.</description>
+    </item>
+    <item>
+      <title>如何考試</title>
+      <link>https://yuan-ru-lin.github.io/blog/having-exam/</link>
+      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/having-exam/</guid>
+      <description>&lt;p&gt;我的家教學生不太喜歡被我教。&lt;/p&gt;&#xA;&lt;p&gt;這不是說她討厭我（應該啦），只是說她偏好在家教時間裡寫題目。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python 教學隨筆</title>
+      <link>https://yuan-ru-lin.github.io/blog/python-tutor/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/python-tutor/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;「嗯⋯⋯可是我是物理系的欸？」&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;p&gt;這是我聽到有人請我教 Python 時的第一個想法。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculation of $P$-value and Significance Level | Yuan-Ru Lin</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Calculation of $P$-value and significance level">
+<meta name="generator" content="Hugo 0.151.0">
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+    
+
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/">Home</a>
+	
+	<a href="/blog">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+	<a href="/links">Links</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Calculation of $P$-value and Significance Level</h1>
+
+    <div class="tip">
+        <time datetime="2022-04-01 21:00:00 &#43;0800 &#43;0800">Apr 1, 2022</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          446 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#prepare-pseudo-data">Prepare pseudo-data</a></li>
+    <li><a href="#define-hypotheses-and-minimize-extended-log-likelihoods">Define Hypotheses and Minimize Extended Log-Likelihoods</a>
+      <ul>
+        <li><a href="#demostrate-results">Demostrate Results</a></li>
+      </ul>
+    </li>
+    <li><a href="#calculate-p-value-and-significance-level">Calculate $P$-value and Significance Level</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h2 id="prepare-pseudo-data">Prepare pseudo-data <a href="#prepare-pseudo-data" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>concatenate((
+</span></span><span style="display:flex;"><span>    st<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">3.1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>)<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>),
+</span></span><span style="display:flex;"><span>    st<span style="color:#f92672">.</span>uniform(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">2.</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2.</span>)<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>hist(data, bins<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">2.</span>, <span style="color:#ae81ff">4.</span>, <span style="color:#ae81ff">61</span>))
+</span></span></code></pre></div><pre><code>(array([16., 11., 15., 19., 14., 21., 16., 15., 16., 13., 15., 11., 13.,
+        24., 18., 12., 14., 27., 20., 12., 11., 20., 19., 22., 10., 23.,
+        15., 14., 19., 24., 26., 23., 36., 51., 30., 21., 17., 17., 19.,
+        18., 23., 18., 11., 12., 16., 17.,  9., 21., 23., 22., 16., 16.,
+        21., 13., 12., 22., 13., 20., 16., 22.]),
+ array([2.        , 2.03333333, 2.06666667, 2.1       , 2.13333333,
+        2.16666667, 2.2       , 2.23333333, 2.26666667, 2.3       ,
+        2.33333333, 2.36666667, 2.4       , 2.43333333, 2.46666667,
+        2.5       , 2.53333333, 2.56666667, 2.6       , 2.63333333,
+        2.66666667, 2.7       , 2.73333333, 2.76666667, 2.8       ,
+        2.83333333, 2.86666667, 2.9       , 2.93333333, 2.96666667,
+        3.        , 3.03333333, 3.06666667, 3.1       , 3.13333333,
+        3.16666667, 3.2       , 3.23333333, 3.26666667, 3.3       ,
+        3.33333333, 3.36666667, 3.4       , 3.43333333, 3.46666667,
+        3.5       , 3.53333333, 3.56666667, 3.6       , 3.63333333,
+        3.66666667, 3.7       , 3.73333333, 3.76666667, 3.8       ,
+        3.83333333, 3.86666667, 3.9       , 3.93333333, 3.96666667,
+        4.        ]),
+ &lt;BarContainer object of 60 artists&gt;)
+</code></pre>
+<p><p class="markdown-image">
+  <img src="p-value-significance-level_files/p-value-significance-level_3_1.png" alt="png"  />
+</p></p>
+<h2 id="define-hypotheses-and-minimize-extended-log-likelihoods">Define Hypotheses and Minimize Extended Log-Likelihoods <a href="#define-hypotheses-and-minimize-extended-log-likelihoods" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">null_hypo</span>(nb, x):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> nb <span style="color:#f92672">*</span> st<span style="color:#f92672">.</span>uniform(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">2.</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2.</span>)<span style="color:#f92672">.</span>pdf(x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">alter_hypo</span>(ns, nb, M, x):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ns <span style="color:#f92672">*</span> st<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span>M, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>)<span style="color:#f92672">.</span>pdf(x) <span style="color:#f92672">+</span> nb <span style="color:#f92672">*</span> st<span style="color:#f92672">.</span>uniform(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">2.</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2.</span>)<span style="color:#f92672">.</span>pdf(x)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">n2ll_null_hypo</span>(nb):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;Returns the extended likelihood of the null hypothesis
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2.</span> <span style="color:#f92672">*</span> ((nb) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(np<span style="color:#f92672">.</span>log(null_hypo(nb, data))))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Sometimes the minimization may not success. You may switch the method</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># of minimization to other strategies, which are available in the help</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># information of `opt.minimize&#39;.</span>
+</span></span><span style="display:flex;"><span>res_null_hypo <span style="color:#f92672">=</span> opt<span style="color:#f92672">.</span>minimize(n2ll_null_hypo, x0<span style="color:#f92672">=</span><span style="color:#ae81ff">1100</span>, method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nelder-Mead&#39;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">n2ll_alter_hypo</span>(theta):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;&#39;&#39;Returns the extended likelihood of the alternative hypothesis
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>    ns, nb, M <span style="color:#f92672">=</span> theta
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2.</span> <span style="color:#f92672">*</span> ((ns <span style="color:#f92672">+</span> nb) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(np<span style="color:#f92672">.</span>log(alter_hypo(ns, nb, M, data))))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>res_alter_hypo <span style="color:#f92672">=</span> opt<span style="color:#f92672">.</span>minimize(n2ll_alter_hypo, x0<span style="color:#f92672">=</span>[<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">3.1</span>], method<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Nelder-Mead&#39;</span>)
+</span></span></code></pre></div><h3 id="demostrate-results">Demostrate Results <a href="#demostrate-results" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>bins <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">2.</span>, <span style="color:#ae81ff">4.</span>, <span style="color:#ae81ff">61</span>)
+</span></span><span style="display:flex;"><span>dx <span style="color:#f92672">=</span> bins[<span style="color:#ae81ff">1</span>:] <span style="color:#f92672">-</span> bins[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>xc <span style="color:#f92672">=</span> (bins[<span style="color:#ae81ff">1</span>:] <span style="color:#f92672">+</span> bins[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>hist(data, bins<span style="color:#f92672">=</span>bins, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Data&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xc, null_hypo(res_null_hypo<span style="color:#f92672">.</span>x, xc) <span style="color:#f92672">*</span> dx, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Null Hypo.&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xc, alter_hypo(<span style="color:#f92672">*</span>res_alter_hypo<span style="color:#f92672">.</span>x, xc) <span style="color:#f92672">*</span> dx, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Alternative Hypo.&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span></code></pre></div><pre><code>&lt;matplotlib.legend.Legend at 0x7fef09185bb0&gt;
+</code></pre>
+<p><p class="markdown-image">
+  <img src="p-value-significance-level_files/p-value-significance-level_11_1.png" alt="png"  />
+</p></p>
+<h2 id="calculate-p-value-and-significance-level">Calculate $P$-value and Significance Level <a href="#calculate-p-value-and-significance-level" class="anchor">🔗</a></h2><p>To calculate $P$-value, one has to figure out what test statisitic to use and what its null hypothesis is (not the null hypothesis of the data we see above, but the null hypothesis of the test statistic).</p>
+<p>In this example, we turn to Wilks&rsquo; Theorem, which states that the test statistic $2 \ln \frac{\max L_{\text{alter}}}{\max L_{\text{null}}}$ has its null hypothesis as $\chi^2_k$ distribution where $k$ is the difference in the dimensions of the two hypotheses.</p>
+<p>So what is $k$ in our example? Note that our hypotheses are of the forms</p>
+<p>$$\begin{aligned}
+L_{\text{null}} &amp;= a,\newline
+L_{\text{alter}} &amp;= a + b \cdot G(M, \sigma = 0.05).
+\end{aligned}$$</p>
+<p>It&rsquo;s easy to spot that $k=2$.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>chi2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.</span> <span style="color:#f92672">*</span> (res_null_hypo<span style="color:#f92672">.</span>fun <span style="color:#f92672">-</span> res_alter_hypo<span style="color:#f92672">.</span>fun)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p_value <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>chi2(df<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>sf(chi2)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>significance_level <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>norm<span style="color:#f92672">.</span>isf(p_value)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>significance_level
+</span></span></code></pre></div><pre><code>11.047059808997453
+</code></pre>
+
+    </div>
+
+    
+
+    
+    
+    
+  <div id="comment">
+    
+    
+      <script src="https://utteranc.es/client.js"
+              repo="Yuan-Ru-Lin/yuan-ru-lin.github.io"
+              issue-term="url"
+              theme="github-light"
+              crossorigin="anonymous"
+              async>
+      </script>
+  </div>
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright
+       2025
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Yuan-Ru Lin @ yuanruleonlin@gmail.com
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

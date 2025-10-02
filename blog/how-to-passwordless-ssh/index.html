@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>About passwordless ssh | Yuan-Ru Lin</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="test">
+<meta name="generator" content="Hugo 0.151.0">
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+
+    
+
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/">Home</a>
+	
+	<a href="/blog">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+	<a href="/links">Links</a>
+
+	
+
+	
+	  <a class="button" href="/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">About passwordless ssh</h1>
+
+    <div class="tip">
+        <time datetime="2023-03-27 00:00:00 &#43;0000 UTC">Mar 27, 2023</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          90 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ssh-copy-id"><code>ssh-copy-id</code></a></li>
+    <li><a href="#about-permissions">About Permissions</a></li>
+    <li><a href="#algorithm">Algorithm</a></li>
+    <li><a href="#git-servers">Git Servers</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h2 id="ssh-copy-id"><code>ssh-copy-id</code> <a href="#ssh-copy-id" class="anchor">🔗</a></h2><p>Using <code>ssh-copy-id</code> feels good.</p>
+<h2 id="about-permissions">About Permissions <a href="#about-permissions" class="anchor">🔗</a></h2><p>Make sure the permissions of the two files <strong>on the server side</strong> are as below:</p>
+<ol>
+<li><code>~/.ssh</code>: 700</li>
+<li><code>~/.ssh/authorized_keys</code>: 600</li>
+</ol>
+<p>If not, <code>chmod</code> them to be so.</p>
+<h2 id="algorithm">Algorithm <a href="#algorithm" class="anchor">🔗</a></h2><p>Make sure the algorithm is supported <strong>on the local side</strong> i.e. have the option <code>PubkeyAcceptedKeyTypes +ssh-rsa</code>.</p>
+<h2 id="git-servers">Git Servers <a href="#git-servers" class="anchor">🔗</a></h2><p>If it&rsquo;s about a git server, make sure the setting is related to the right host e.g.</p>
+<pre tabindex="0"><code class="language-sshconfig" data-lang="sshconfig">Host github.com
+ Hostname github.com
+ User Yuan-Ru-Lin
+ IdentityFile ~/.ssh/github
+</code></pre><p>where <code>~/.ssh/github</code> is the identity whose <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">pubkey are added to your GitHub account</a>.</p>
+
+    </div>
+
+    
+
+    
+    
+    
+  <div id="comment">
+    
+    
+      <script src="https://utteranc.es/client.js"
+              repo="Yuan-Ru-Lin/yuan-ru-lin.github.io"
+              issue-term="url"
+              theme="github-light"
+              crossorigin="anonymous"
+              async>
+      </script>
+  </div>
+
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright
+       2025
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Yuan-Ru Lin @ yuanruleonlin@gmail.com
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

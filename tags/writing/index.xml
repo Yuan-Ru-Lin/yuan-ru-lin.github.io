@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writing on Yuan-Ru Lin</title>
+    <link>https://yuan-ru-lin.github.io/tags/writing/</link>
+    <description>Recent content in Writing on Yuan-Ru Lin</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://yuan-ru-lin.github.io/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Produce xor Edit</title>
+      <link>https://yuan-ru-lin.github.io/blog/produce-xor-edit/</link>
+      <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/produce-xor-edit/</guid>
+      <description>When you write, either produce content or modify what&amp;rsquo;s been written.</description>
+    </item>
+    <item>
+      <title>When to Publish</title>
+      <link>https://yuan-ru-lin.github.io/blog/when-to-publish/</link>
+      <pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://yuan-ru-lin.github.io/blog/when-to-publish/</guid>
+      <description>Publish when you can&amp;rsquo;t see a better version of your piece.</description>
+    </item>
+  </channel>
+</rss>
