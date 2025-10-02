@@ -8,7 +8,7 @@ summary: All you need are two cups and a handful of coins.
 
 It all started with a guy showing off his 50-day streak of pushing-ups with James Clear's Habit Tracker[^1].
 
-{{< tweet 1240330498586693634 >}}
+{{< tweet user="jamesclear" id="1240330498586693634" >}}
 
 I was a bit motivated and would like to go to the gym. But they were closed due to the virus.
 
