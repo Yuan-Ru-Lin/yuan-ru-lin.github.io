@@ -1,0 +1,117 @@
+:root {
+  --measure: 38rem;
+  --margin: 15rem;
+  --gap: 3rem;
+  --ink: #1b1b1b;
+  --muted: #5a5a5a;
+  --accent: #b8a67a;
+  --code-bg: #f3f1ec;
+}
+
+html { color: var(--ink); background: #fcfbf8; }
+
+body {
+  margin: 0;
+  font-family: "Source Serif 4", Georgia, "Noto Serif TC", serif;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+nav {
+  max-width: var(--measure);
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+main {
+  display: flow-root;
+  max-width: var(--measure);
+  margin: 3rem auto 5rem;
+  padding: 0 1.5rem;
+}
+
+header { margin-bottom: 2.5rem; }
+header time { display: block; font-size: 0.85rem; color: var(--muted); }
+
+h1, h2, h3 {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  margin: 2.5rem 0 1rem;
+}
+h1 { font-size: 2.2rem; margin: 0 0 0.3rem; }
+h2 { font-size: 1.5rem; font-style: italic; }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1.2rem; }
+
+a { color: inherit; text-decoration-color: var(--accent); }
+
+/* Homepage list */
+main ul.posts { list-style: none; padding: 0; }
+main ul.posts li { margin: 0 0 0.6rem; }
+main li time { margin-left: 1em; font-size: 0.85em; color: var(--muted); white-space: nowrap; }
+
+/* Sidenotes: note() and footnotes */
+.note {
+  float: right;
+  clear: right;
+  width: var(--margin);
+  margin: 0.2rem calc(-1 * (var(--margin) + var(--gap))) 1rem 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* Code */
+pre, code { font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace; }
+code { font-size: 0.88em; background: var(--code-bg); padding: 0.1em 0.3em; border-radius: 3px; }
+pre {
+  background: var(--code-bg);
+  padding: 0.9rem 1.1rem;
+  margin: 0 0 1.4rem;
+  overflow-x: auto;
+  line-height: 1.5;
+  border-radius: 4px;
+}
+pre code { background: none; padding: 0; font-size: 0.85em; }
+
+/* Figures and images */
+img { max-width: 100%; height: auto; }
+figure { margin: 1.8rem 0; text-align: center; }
+figure p { margin: 0; }
+figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+
+blockquote {
+  margin: 1.4rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+}
+
+hr { border: 0; border-top: 1px solid var(--accent); margin: 2.5rem auto; width: 30%; }
+
+table { border-collapse: collapse; margin: 1.4rem 0; }
+th, td { padding: 0.3rem 0.8rem; border-bottom: 1px solid #ddd; }
+
+math[display="block"] { margin: 1.5rem 0; font-size: 1.1em; }
+
+.comments { margin-top: 4rem; }
+
+@media (max-width: 74rem) {
+  .note {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+  }
+}
