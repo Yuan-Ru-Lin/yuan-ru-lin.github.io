@@ -102,6 +102,12 @@ blockquote {
   color: var(--muted);
 }
 
+/* Bibliography: Typst emits a bullet-less <ul>; drop the list indent so
+   entries align with the text, with a hanging indent under the [n] prefix. */
+section[role="doc-bibliography"] ul { padding-left: 0; }
+section[role="doc-bibliography"] li { padding-left: 2.45em; text-indent: -2.45em; margin-bottom: 0.4rem; }
+section[role="doc-bibliography"] .prefix { display: inline-block; min-width: 2.2em; text-indent: 0; }
+
 hr { border: 0; border-top: 1px solid var(--accent); margin: 2.5rem auto; width: 30%; }
 
 table { border-collapse: collapse; margin: 1.4rem 0; }
