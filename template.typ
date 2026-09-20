@@ -16,6 +16,7 @@
   show image: it => html.elem("img", attrs: (
     src: "/" + it.source.replace(regex("^(\.\./)+"), ""),
     alt: if it.alt == none { "" } else { it.alt },
+    loading: "lazy",
   ))
   show footnote: it => html.elem("span", attrs: (class: "note"), it.body)
   set figure(numbering: none)
@@ -53,18 +54,23 @@
   html.elem("div", attrs: (class: "wide"), body)
 } else { body }
 
-// Remote photo: a bare path is a key in the R2 bucket at photo-base; a full
-// URL is used as is. Emits a lazy-loaded <img> in HTML. Typst cannot fetch
-// URLs, so the paged preview shows a link instead.
-#let photo(path, alt: "", caption: none) = context {
-  let url = if path.starts-with("http") { path } else { photo-base + path.trim("/", at: start) }
-  if target() == "html" {
-    html.elem("figure")[
-      #html.elem("img", attrs: (src: url, alt: alt, loading: "lazy"))
-      #if caption != none { html.elem("figcaption", caption) }
-    ]
+// Photo with optional caption. By default the path is a key in the R2 bucket
+// at photo-base (a full URL is used as is) and the paged preview shows a link,
+// since Typst cannot fetch URLs. With local: true the path is relative to
+// static/ and the file ships with the site like any other image().
+#let photo(path, alt: "", caption: none, local: false) = context {
+  if local {
+    figure(image("static/" + path, alt: alt), caption: caption)
   } else {
-    block(stroke: (left: 1.5pt + gray), inset: 0.8em)[Photo: #link(url) #if caption != none [— #caption]]
+    let url = if path.starts-with("http") { path } else { photo-base + path.trim("/", at: start) }
+    if target() == "html" {
+      html.elem("figure")[
+        #html.elem("img", attrs: (src: url, alt: alt, loading: "lazy"))
+        #if caption != none { html.elem("figcaption", caption) }
+      ]
+    } else {
+      block(stroke: (left: 1.5pt + gray), inset: 0.8em)[Photo: #link(url) #if caption != none [— #caption]]
+    }
   }
 }
 
