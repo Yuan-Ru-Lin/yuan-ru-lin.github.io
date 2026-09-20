@@ -1,4 +1,4 @@
-#import "template.typ": site, site-title, note, comments, rss
+#import "template.typ": site, site-title, note, comments, rss, page-dir
 
 #let posts = (
   (
@@ -191,6 +191,7 @@
 #for p in published {
   document("blog/" + p.slug + "/index.html", title: p.title)[
     #show: site.with(title: p.title, date: p.date, lang: p.at("lang", default: "en"))
+    #page-dir.update(p.slug)
     #include(p.file)
     #comments()
   ]
@@ -198,6 +199,7 @@
 
 #document("about/index.html", title: "About")[
   #show: site.with(title: "About")
+  #page-dir.update("about")
   #include("pages/about.typ")
 ]
 

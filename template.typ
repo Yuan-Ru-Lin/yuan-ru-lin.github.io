@@ -54,15 +54,26 @@
   html.elem("div", attrs: (class: "wide"), body)
 } else { body }
 
-// Photo with optional caption. By default the path is a key in the R2 bucket
-// at photo-base (a full URL is used as is) and the paged preview shows a link,
-// since Typst cannot fetch URLs. With local: true the path is relative to
-// static/ and the file ships with the site like any other image().
+// Folder of the page being built (its slug). main.typ sets it per document so
+// photo("x.jpeg") finds <slug>/x.jpeg without the page repeating its own name.
+#let page-dir = state("page-dir", none)
+
+// Photo with optional caption. A bare filename lives in the current page's
+// folder; a path containing "/" is used as written. By default that path is a
+// key in the R2 bucket at photo-base (a full URL is used as is) and the paged
+// preview shows a link, since Typst cannot fetch URLs. With local: true it is
+// relative to static/ and the file ships with the site like any other image().
 #let photo(path, alt: "", caption: none, local: false) = context {
-  if local {
-    figure(image("static/" + path, alt: alt), caption: caption)
+  let dir = page-dir.get()
+  let bare = not path.contains("/")
+  let key = if bare and dir != none { dir + "/" + path } else { path }
+  if local and bare and dir == none {
+    // Standalone preview of a single page: the folder is unknown.
+    block(stroke: (left: 1.5pt + gray), inset: 0.8em)[Photo: #path (shown in the full site build)]
+  } else if local {
+    figure(image("static/" + key, alt: alt), caption: caption)
   } else {
-    let url = if path.starts-with("http") { path } else { photo-base + path.trim("/", at: start) }
+    let url = if key.starts-with("http") { key } else { photo-base + key.trim("/", at: start) }
     if target() == "html" {
       html.elem("figure")[
         #html.elem("img", attrs: (src: url, alt: alt, loading: "lazy"))
