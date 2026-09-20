@@ -88,6 +88,9 @@ pre code { background: none; padding: 0; font-size: 0.85em; }
 img { display: block; max-width: 100%; max-height: 80vh; width: auto; height: auto; margin: 0 auto; }
 figure { margin: 1.8rem 0; text-align: center; }
 figure p { margin: 0; }
+
+/* wide(): spans the text column plus the sidenote margin */
+.wide { clear: right; margin-right: calc(-1 * (var(--margin) + var(--gap))); }
 figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
 
 blockquote {
@@ -107,6 +110,7 @@ math[display="block"] { margin: 1.5rem 0; font-size: 1.1em; }
 .comments { margin-top: 4rem; }
 
 @media (max-width: 74rem) {
+  .wide { margin-right: 0; }
   .note {
     float: none;
     display: block;

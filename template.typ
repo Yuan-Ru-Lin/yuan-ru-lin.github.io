@@ -48,6 +48,11 @@
   block(stroke: (left: 1.5pt + blue), inset: 0.8em, body)
 }
 
+// Let a figure or photo extend into the sidenote margin on wide screens.
+#let wide(body) = context if target() == "html" {
+  html.elem("div", attrs: (class: "wide"), body)
+} else { body }
+
 // Remote photo: a bare path is a key in the R2 bucket at photo-base; a full
 // URL is used as is. Emits a lazy-loaded <img> in HTML. Typst cannot fetch
 // URLs, so the paged preview shows a link instead.
