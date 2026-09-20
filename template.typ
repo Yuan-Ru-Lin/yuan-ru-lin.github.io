@@ -1,5 +1,6 @@
 #let site-title = "Yuan-Ru Lin"
 #let site-url = "https://yuanruleonlin.com"
+#let photo-base = "https://img.yuanruleonlin.com/"
 
 #let nav() = html.elem("nav")[
   #link("/")[Home]
@@ -47,15 +48,19 @@
   block(stroke: (left: 1.5pt + blue), inset: 0.8em, body)
 }
 
-// Remote photo (e.g. on R2): a lazy-loaded <img> in HTML. Typst cannot fetch
+// Remote photo: a bare path is a key in the R2 bucket at photo-base; a full
+// URL is used as is. Emits a lazy-loaded <img> in HTML. Typst cannot fetch
 // URLs, so the paged preview shows a link instead.
-#let photo(url, alt: "", caption: none) = context if target() == "html" {
-  html.elem("figure")[
-    #html.elem("img", attrs: (src: url, alt: alt, loading: "lazy"))
-    #if caption != none { html.elem("figcaption", caption) }
-  ]
-} else {
-  block(stroke: (left: 1.5pt + gray), inset: 0.8em)[Photo: #link(url) #if caption != none [— #caption]]
+#let photo(path, alt: "", caption: none) = context {
+  let url = if path.starts-with("http") { path } else { photo-base + path.trim("/", at: start) }
+  if target() == "html" {
+    html.elem("figure")[
+      #html.elem("img", attrs: (src: url, alt: alt, loading: "lazy"))
+      #if caption != none { html.elem("figcaption", caption) }
+    ]
+  } else {
+    block(stroke: (left: 1.5pt + gray), inset: 0.8em)[Photo: #link(url) #if caption != none [— #caption]]
+  }
 }
 
 // Colored math: MathML mathcolor in HTML, text fill in paged preview.
