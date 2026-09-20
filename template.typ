@@ -48,7 +48,7 @@
   block(stroke: (left: 1.5pt + blue), inset: 0.8em, body)
 }
 
-// Let a figure or photo extend into the sidenote margin on wide screens.
+// Let a figure or photo break out of the text column, centered on the page.
 #let wide(body) = context if target() == "html" {
   html.elem("div", attrs: (class: "wide"), body)
 } else { body }
