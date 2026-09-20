@@ -91,6 +91,7 @@ figure p { margin: 0; }
 
 /* wide(): spans the text column plus the sidenote margin */
 .wide { clear: right; margin-right: calc(-1 * (var(--margin) + var(--gap))); }
+.wide img { max-height: 95vh; }
 figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
 
 blockquote {
