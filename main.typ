@@ -28,7 +28,6 @@
     date: "2022-12-12",
     summary: "",
     file: "pages/belle-population.typ",
-    images: ("B2Kpi.jpg", "higgs2digamma.jpg", "jpsi.jpg", "standard_model.jpg"),
   ),
   (
     slug: "remote-files-with-http-server",
@@ -57,7 +56,6 @@
     date: "2022-04-01",
     summary: "Calculation of P-value and significance level",
     file: "pages/p-value-significance-level.typ",
-    images: ("p-value-significance-level_files/p-value-significance-level_11_1.png", "p-value-significance-level_files/p-value-significance-level_3_1.png"),
   ),
   (
     slug: "inference-binned",
@@ -65,7 +63,6 @@
     date: "2022-03-10",
     summary: "How to fit binned data",
     file: "pages/inference-binned.typ",
-    images: ("chi2.png", "data_with_pdf.png", "data.png"),
   ),
   (
     slug: "inference-mle",
@@ -73,7 +70,6 @@
     date: "2022-03-02",
     summary: "Hands-on for Maximum-Likelihood Estimation, with demonstration for confidence intervals.",
     file: "pages/inference-mle.typ",
-    images: ("Figure_1.png",),
   ),
   (
     slug: "why-rss",
@@ -124,7 +120,6 @@
     date: "2020-04-20",
     summary: "Otherwise you can hardly get your regresssion done.",
     file: "pages/regularization.typ",
-    images: ("index_15_1.png", "overtraining.png", "regularization.png"),
     draft: true,
   ),
   (
@@ -133,7 +128,6 @@
     date: "2020-04-18",
     summary: "All you need are two cups and a handful of coins.",
     file: "pages/how-i-managed-to-exercise-for-almost-one-month.typ",
-    images: ("IMG_2274.JPG", "IMG_2275.JPG"),
   ),
   (
     slug: "chinese-font",
@@ -141,7 +135,6 @@
     date: "2020-04-14",
     summary: "",
     file: "pages/chinese-font.typ",
-    images: ("demo.png", "download.png", "fonts.png"),
     lang: "zh-Hant",
   ),
   (
@@ -158,7 +151,6 @@
     date: "2020-04-07",
     summary: "Sometimes you need more than Gradient Descent to converge.",
     file: "pages/rosenbrock.typ",
-    images: ("index_19_1.png", "index_23_1.png", "index_27_1.png", "index_31_1.png", "index_7_1.png"),
     draft: true,
   ),
   (
@@ -223,9 +215,8 @@
 
 #asset("index.xml", rss(published))
 
-#for p in published {
-  for f in p.at("images", default: ()) {
-    let path = "static/" + p.slug + "/" + f
-    asset(path, read(path, encoding: none))
-  }
+// Every image() used by any document above is copied to the same path in
+// the output, so pages only need to reference files under static/.
+#context for path in query(image).map(it => it.source.replace(regex("^(\.\./)+"), "")).dedup() {
+  asset(path, read(path, encoding: none))
 }
