@@ -1,5 +1,5 @@
 #let site-title = "Yuan-Ru Lin"
-#let site-url = "https://yuan-ru-lin.github.io"
+#let site-url = "https://yuanruleonlin.com"
 
 #let nav() = html.elem("nav")[
   #link("/")[Home]
