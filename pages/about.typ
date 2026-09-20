@@ -1,6 +1,6 @@
 #import "../template.typ": note
 
-I am a PhD student in physics at the University of Washington, working on neutrino physics with the LEGEND experiment. Before that I did my master's at National Taiwan University with the Belle experiment.
+A PhD student in physics at the University of Washington, Seattle. I work on neutrino physics with the LEGEND experiment. Before that I did my master's at National Taiwan University with the Belle experiment.
 
 = Academic
 <academic>
@@ -11,8 +11,4 @@ I am a PhD student in physics at the University of Washington, working on neutri
 = Elsewhere
 <elsewhere>
 - #link("https://github.com/Yuan-Ru-Lin")[GitHub]
-- yuanruleonlin\@gmail.com
-
-= Personal
-<personal>
-- Coffee addict. My personal café review is under development.
+- #link("mailto:yuanruleonlin@gmail.com")[yuanruleonlin\@gmail.com]
