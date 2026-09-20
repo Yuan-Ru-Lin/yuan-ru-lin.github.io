@@ -45,6 +45,17 @@
   block(stroke: (left: 1.5pt + blue), inset: 0.8em, body)
 }
 
+// Remote photo (e.g. on R2): a lazy-loaded <img> in HTML. Typst cannot fetch
+// URLs, so the paged preview shows a link instead.
+#let photo(url, alt: "", caption: none) = context if target() == "html" {
+  html.elem("figure")[
+    #html.elem("img", attrs: (src: url, alt: alt, loading: "lazy"))
+    #if caption != none { html.elem("figcaption", caption) }
+  ]
+} else {
+  block(stroke: (left: 1.5pt + gray), inset: 0.8em)[Photo: #link(url) #if caption != none [— #caption]]
+}
+
 // Colored math: MathML mathcolor in HTML, text fill in paged preview.
 #let colored(color, body) = context if target() == "html" {
   html.elem("mstyle", attrs: (mathcolor: color), body)
