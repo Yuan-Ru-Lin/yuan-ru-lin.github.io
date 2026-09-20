@@ -132,3 +132,5 @@
     "</channel></rss>",
   ).join("\n") + "\n"
 }
+
+#let refs(..args) = bibliography("Blog.bib", title: [References], style: "american-physics-society", ..args)
