@@ -5,6 +5,8 @@
   #link("/")[Home]
   #link("/about/")[About]
   #link("/index.xml")[RSS]
+  #link("https://github.com/Yuan-Ru-Lin")[GitHub]
+  #link("mailto:yuanruleonlin@gmail.com")[Email]
 ]
 
 // Site chrome. Under HTML it owns <html>, <head> and <body>; under the paged
