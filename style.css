@@ -1,5 +1,5 @@
 :root {
-  --measure: 38rem;
+  --measure: 44rem;
   --margin: 15rem;
   --gap: 3rem;
   --ink: #1b1b1b;
@@ -117,7 +117,7 @@ math[display="block"] { margin: 1.5rem 0; font-size: 1.1em; }
 
 .comments { margin-top: 4rem; }
 
-@media (max-width: 74rem) {
+@media (max-width: 80rem) {
   .note {
     float: none;
     display: block;
