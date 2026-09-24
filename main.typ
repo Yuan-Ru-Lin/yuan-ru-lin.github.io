@@ -2,6 +2,7 @@
 
 #let posts = (
   (
+    unlisted: true,
     slug: "pycall-with-uv",
     title: "Using PyCall with uv-managed Python Environments",
     date: "2025-10-02",
@@ -9,6 +10,7 @@
     file: "pages/pycall-with-uv.typ",
   ),
   (
+    unlisted: true,
     slug: "how-to-passwordless-ssh",
     title: "About passwordless ssh",
     date: "2023-03-27",
@@ -16,6 +18,7 @@
     file: "pages/how-to-passwordless-ssh.typ",
   ),
   (
+    unlisted: true,
     slug: "cocktails",
     title: "DIY Cocktails",
     date: "2022-12-19",
@@ -30,6 +33,7 @@
     file: "pages/belle-population.typ",
   ),
   (
+    unlisted: true,
     slug: "remote-files-with-http-server",
     title: "How to Browse Remote Files with an HTTP Server",
     date: "2022-05-12",
@@ -37,6 +41,7 @@
     file: "pages/remote-files-with-http-server.typ",
   ),
   (
+    unlisted: true,
     slug: "on-note-taking-softwares",
     title: "On Note-Taking Softwares",
     date: "2022-05-10",
@@ -44,6 +49,7 @@
     file: "pages/on-note-taking-softwares.typ",
   ),
   (
+    unlisted: true,
     slug: "color-latex",
     title: "How to Use Colors in LaTeX",
     date: "2022-05-05",
@@ -51,6 +57,7 @@
     file: "pages/color-latex.typ",
   ),
   (
+    unlisted: true,
     slug: "p-value-significance-level",
     title: "Calculation of P-value and Significance Level",
     date: "2022-04-01",
@@ -58,6 +65,7 @@
     file: "pages/p-value-significance-level.typ",
   ),
   (
+    unlisted: true,
     slug: "inference-binned",
     title: "Binned Fit — Least-Squares Fit and Binned Maximum-Likelihood Fit",
     date: "2022-03-10",
@@ -65,6 +73,7 @@
     file: "pages/inference-binned.typ",
   ),
   (
+    unlisted: true,
     slug: "inference-mle",
     title: "Inference — Maximum-Likelihood Estimation",
     date: "2022-03-02",
@@ -79,6 +88,7 @@
     file: "pages/why-rss.typ",
   ),
   (
+    unlisted: true,
     slug: "how-to-read-a-book",
     title: "How to Read a Book",
     date: "2020-10-24",
@@ -86,6 +96,7 @@
     file: "pages/how-to-read-a-book.typ",
   ),
   (
+    unlisted: true,
     slug: "produce-xor-edit",
     title: "Produce xor Edit",
     date: "2020-10-18",
@@ -93,6 +104,7 @@
     file: "pages/produce-xor-edit.typ",
   ),
   (
+    unlisted: true,
     slug: "when-to-publish",
     title: "When to Publish",
     date: "2020-10-14",
@@ -100,6 +112,7 @@
     file: "pages/when-to-publish.typ",
   ),
   (
+    unlisted: true,
     slug: "zeroth-impression",
     title: "Zeroth Impression",
     date: "2020-05-08",
@@ -107,6 +120,7 @@
     file: "pages/zeroth-impression.typ",
   ),
   (
+    unlisted: true,
     slug: "naval",
     title: "你會成功的，翻譯自 Naval",
     date: "2020-04-26",
@@ -131,6 +145,7 @@
     file: "pages/how-i-managed-to-exercise-for-almost-one-month.typ",
   ),
   (
+    unlisted: true,
     slug: "chinese-font",
     title: "在 matplotlib 顯示中文",
     date: "2020-04-14",
@@ -155,6 +170,7 @@
     draft: true,
   ),
   (
+    unlisted: true,
     slug: "so-you-are-learning-python",
     title: "\"So you are learning Python\"",
     date: "2020-04-03",
@@ -162,6 +178,7 @@
     file: "pages/so-you-are-learning-python.typ",
   ),
   (
+    unlisted: true,
     slug: "having-exam",
     title: "如何考試",
     date: "2019-12-22",
@@ -178,6 +195,7 @@
     draft: true,
   ),
   (
+    unlisted: true,
     slug: "python-tutor",
     title: "Python 教學隨筆",
     date: "2019-11-24",
