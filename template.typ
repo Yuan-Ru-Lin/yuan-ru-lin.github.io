@@ -107,6 +107,15 @@
   ]
 }
 
+// Embed a tweet from its URL. Twitter's widget script replaces the blockquote
+// with the rendered card; without JS (or in PDF) only the link remains.
+#let tweet(url) = context if target() == "html" {
+  html.elem("blockquote", attrs: (class: "twitter-tweet"))[
+    #html.elem("a", attrs: (href: url), url)
+  ]
+  html.elem("script", attrs: (src: "https://platform.twitter.com/widgets.js", async: "", charset: "utf-8"))
+} else { link(url) }
+
 // RSS 2.0 feed as a string, for asset("index.xml", ...).
 #let rss(posts) = {
   let esc = s => s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")

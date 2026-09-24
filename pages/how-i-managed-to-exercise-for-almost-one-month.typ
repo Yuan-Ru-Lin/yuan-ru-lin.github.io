@@ -1,8 +1,8 @@
-#import "../template.typ": note
+#import "../template.typ": note, tweet
 
 It all started with a guy showing off his 50-day streak of pushing-ups with James Clear's Habit Tracker#footnote[I then bought James Clear's #emph[Atomic Habits]. The book is so actionable that you can take it as a manual reference for building habits. Highly recommended.].
 
-#link("https://twitter.com/jamesclear/status/1240330498586693634")[Tweet by \@jamesclear]
+#tweet("https://twitter.com/jamesclear/status/1240330498586693634")
 
 I was a bit motivated and would like to go to the gym. But they were closed due to the virus.
 
