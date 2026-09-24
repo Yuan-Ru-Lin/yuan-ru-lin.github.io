@@ -123,6 +123,7 @@
     draft: true,
   ),
   (
+    unlisted: true,
     slug: "how-i-managed-to-exercise-for-almost-one-month",
     title: "How I Managed to Exercise for (Almost) One Month",
     date: "2020-04-18",
@@ -186,7 +187,10 @@
   ),
 )
 
+// draft: not built at all. unlisted: built at its URL, but kept out of the
+// index and the feed.
 #let published = posts.filter(p => not p.at("draft", default: false)).sorted(key: p => p.date).rev()
+#let listed = published.filter(p => not p.at("unlisted", default: false))
 
 #for p in published {
   document("blog/" + p.slug + "/index.html", title: p.title)[
@@ -206,7 +210,7 @@
 #document("index.html", title: site-title)[
   #show: site.with(title: site-title)
   #html.elem("ul", attrs: (class: "posts"))[
-    #for p in published [
+    #for p in listed [
       #html.elem("li")[
         #link("/blog/" + p.slug + "/", p.title)
         #html.elem("time", attrs: (datetime: p.date), p.date)
@@ -215,7 +219,7 @@
   ]
 ]
 
-#asset("index.xml", rss(published))
+#asset("index.xml", rss(listed))
 
 // Every image() used by any document above is copied to the same path in
 // the output, so pages only need to reference files under static/.
